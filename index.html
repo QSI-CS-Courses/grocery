@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Store List</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fffaf0;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #e74c3c;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        padding: 8px 0;
+        font-size: 1.2rem;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.3);
+        margin-right: 8px;
+    }
+    button { 
+        background-color: #e74c3c;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    button:hover {
+        background-color: #c0392b;
+    }
+    button:active {
+        background-color: #7e261d;
+    }
+</style>
+</head>
+<body>
+    <h1>My Grocery List</h1>
+    <p>Don’t forget to buy:</p>
+    <ul>
+        <li><input type="checkbox" id="item1"> <label for="item1">🍎 Apple</label></li>
+        <li><input type="checkbox" id="item2"> <label for="item2">🍌 Banana</label></li>
+        <li><input type="checkbox" id="item3"> <label for="item3">🍊 Orange</label></li>
+        <li><input type="checkbox" id="item4"> <label for="item4">🥔 Potato</label></li>
+        <li><input type="checkbox" id="item5"> <label for="item5">🥛 Milk</label></li>
+    </ul>
+    <p>Click on the checkbox to mark an item as bought.</p>
+    <button id="clear-list">Clear List</button>
+    <script>
+        // When a checkbox is clicked, dim the text
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+            const label = document.querySelector(`label[for="${this.id}"]`);
+            if (this.checked) {
+                label.style.textDecoration = 'line-through';
+                label.style.opacity = '0.6';
+            } else {
+                label.style.textDecoration = 'none';
+                label.style.opacity = '1';
+            }
+            });
+        });
+
+        document.querySelector('#clear-list').addEventListener('click', function() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+            const label = document.querySelector(`label[for="${checkbox.id}"]`);
+            label.style.textDecoration = 'none';
+            label.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

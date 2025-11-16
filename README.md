@@ -49,8 +49,10 @@ The teacher's version includes a "Clear List" button that:
 Students should implement this functionality using JavaScript event listeners and DOM manipulation techniques learned in the course.
 
 ## Project Structure
+```bash
 ├── index.html # Main HTML file containing the application 
 └── README.md # This file
+```
 
 
 ## Application Details

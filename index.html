@@ -55,7 +55,6 @@
         <li><input type="checkbox" id="item5"> <label for="item5">🥛 Milk</label></li>
     </ul>
     <p>Click on the checkbox to mark an item as bought.</p>
-    <button id="clear-list">Clear List</button>
     <script>
         // When a checkbox is clicked, dim the text
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
@@ -68,15 +67,6 @@
                 label.style.textDecoration = 'none';
                 label.style.opacity = '1';
             }
-            });
-        });
-
-        document.querySelector('#clear-list').addEventListener('click', function() {
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = false;
-            const label = document.querySelector(`label[for="${checkbox.id}"]`);
-            label.style.textDecoration = 'none';
-            label.style.opacity = '1';
             });
         });
     </script>
